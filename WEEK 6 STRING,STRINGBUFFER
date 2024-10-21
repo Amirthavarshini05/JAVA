@@ -1,0 +1,142 @@
+1.class prog
+
+import java.util.Scanner;
+import java.util.Arrays;
+import java.lang.String;
+
+class prog {
+
+    public static void main(String[] args) {
+       
+        Scanner o=new Scanner(System.in);
+        String s=o.nextLine();
+        int n=o.nextInt();
+       
+        String result = processWords(s,n);
+        System.out.println(result);
+
+       
+    }
+
+    public static String processWords(String input1, int input2) {
+       
+        String[] words = input1.split(" ");
+       
+        int firstIndex = (input2 / 10) - 1;
+        int secondIndex = (input2 % 10) - 1;
+
+     
+        String firstWordProcessed = processWord(words[firstIndex]);
+        String secondWordProcessed = processWord(words[secondIndex]);
+
+     
+        return firstWordProcessed + " " + secondWordProcessed;
+    }
+
+   
+    public static String processWord(String word) {
+        int length = word.length();
+        int mid = length / 2;
+
+        String l, f;
+       
+       
+        if (length % 2 == 0) {
+             f=word.substring(0,mid);
+            f= new StringBuilder(f).reverse().toString();
+            l= word.substring(mid);
+            return f+l ;
+           
+        } else {
+            f = word.substring(0, mid + 1);
+            f= new StringBuilder(f).reverse().toString();
+            l= word.substring(mid);
+        }
+
+        return f+l;
+    }
+}
+
+
+2.class prog
+
+import java.util.Scanner;
+
+public class prog{
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+       
+       
+        String input = sc.nextLine();
+
+       
+        String[] words = input.split(":");
+
+        StringBuilder result = new StringBuilder();
+
+        for (String word : words) {
+            char c1 = word.charAt(0);
+            char c2 = word.charAt(1);
+
+            if (c1 == c2) {
+               
+                result.append(Character.toUpperCase(c1));
+            } else {
+               
+                int pos1 = c1 - 'a' + 1;
+                int pos2 = c2 - 'a' + 1;
+
+                int diff = Math.abs(pos1 - pos2);
+
+             
+                char newChar = (char) ('a' + diff - 1);
+                result.append(Character.toUpperCase(newChar));
+            }
+        }
+
+   
+        System.out.println(result.toString());
+
+       
+    }
+}
+
+
+3.class s
+
+import java.util.*;
+
+public class s {
+    public static String solve(String a, String b) {
+        if ((a == null || a.trim().isEmpty()) && (b == null || b.trim().isEmpty())) return "null";
+
+        String combined = a + b;
+        Set<Character> uniqueChars = new HashSet<>();
+
+        for (char c : combined.toCharArray()) {
+            if (Character.isAlphabetic(c)) {
+                uniqueChars.add(c);
+            }
+        }
+
+        char[] charArray = new char[uniqueChars.size()];
+        int i = 0;
+        for (char c : uniqueChars) {
+            charArray[i++] = c;
+        }
+
+        Arrays.sort(charArray);
+        return new StringBuilder(new String(charArray)).reverse().toString();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+       
+        String input1 = sc.nextLine();
+        String input2 = sc.nextLine();
+        System.out.println(solve(input1, input2));
+    }
+}
+
