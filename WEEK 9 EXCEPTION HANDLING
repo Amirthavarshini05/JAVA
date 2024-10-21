@@ -1,0 +1,121 @@
+1.class prog
+
+import java.util.Scanner;
+import java.util.InputMismatchException;
+class prog 
+{
+  public static void main(String[] args) 
+  {
+    Scanner sc = new Scanner(System.in); 
+    int length = sc.nextInt(); 
+    // create an array to save user input 
+    int[] name = new int[length];
+    int sum=0;//save the total sum of the array.
+     
+    /* Define try-catch block to save user input in the array "name"
+   If there is an exception then catch the exception otherwise print 
+   the total sum of the array. */ 
+        try
+        {
+            for(int i=0;i<length;i++)
+            {
+                name[i]=sc.nextInt();
+                sum+=name[i];
+            }
+            System.out.println(sum);
+        }
+        catch(Exception e)
+        {
+             System.out.println("You entered bad data.");
+        }
+    }
+}
+
+
+2.class prog
+
+import java.util.Scanner;
+
+class prog 
+{
+  public static void main(String[] args) 
+  {
+    Scanner sc = new Scanner(System.in); 
+    int n = sc.nextInt(); 
+    int[] arr = new int[n];
+    for(int i=0;i<n;i++)
+    {
+        arr[i]=sc.nextInt();
+    }
+    try
+    {
+        int b=arr[0]/arr[1];
+        try
+        {
+            System.out.println(arr[n]);
+        }
+        catch(ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println(e);
+            System.out.println("I am always executed");
+        }
+    }
+    catch(ArithmeticException a)
+    {
+        System.out.println(a);
+        System.out.println("I am always executed");
+    }
+  }
+}
+
+/*
+    try
+    {
+        int b=arr[0]/arr[1];
+        System.out.println(arr[n]);
+    }
+        catch(ArrayIndexOutOfBoundException e)
+        {
+            System.out.println(e);
+            System.out.println("I am always executed");
+        }
+    catch(ArithmeticException e)
+    {
+        System.out.println(e);
+        System.out.println("I am always executed");
+    }
+    
+*/
+
+
+3.class prog
+
+class prog 
+{
+  public static void main(String[] args) 
+  {
+    int n = 82;
+    trynumber(n);
+    n = 37;
+    // call the trynumber(n);
+    trynumber(n);
+    
+  }
+
+  public static void trynumber(int n) {
+    try {
+        //call the checkEvenNumber()
+      checkEvenNumber(n);
+      System.out.println(n + " is even.");
+    } catch (Exception e) {
+      System.out.println("Error: " + e.getMessage());
+    }
+  }
+
+  public static void checkEvenNumber(int number) {
+    if (number % 2 != 0) {
+      throw new IllegalArgumentException(number + " is odd.");
+    }
+  }
+}
+
