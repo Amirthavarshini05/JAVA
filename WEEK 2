@@ -1,0 +1,121 @@
+1.nth terms of the sequence
+
+import java.util.Scanner;
+
+class seq
+{
+    public static String generateTerm(int n)
+    {
+        if(n==1)
+        {
+            return "1";
+        }
+        String previousTerm = generateTerm(n-1);
+        return previousTerm +" "+n+" "+previousTerm ;
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        String nthTerm = generateTerm(n);
+        System.out.print(nthTerm);
+        sc.close();
+    }
+}
+
+
+2.print number in words
+
+import java.util.Scanner;
+
+public class jas
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        String[] arr= new String[10];
+        int j=0;
+        while(n>0)
+        {
+            int r=n%10;
+            switch(r)
+            {
+                case 1:
+                    arr[j]="One";
+                    j++;
+                    break;
+                case 2:
+                    arr[j]="Two";
+                    j++;
+                    break;
+                case 3:
+                    arr[j]="Three";
+                    j++;
+                    break;
+                case 4:
+                    arr[j]="Four";
+                    j++;
+                    break;
+                case 5:
+                    arr[j]="Five";
+                    j++;
+                    break;
+                case 6:
+                    arr[j]="Six";
+                    j++;
+                    break;
+                case 7:
+                    arr[j]="Seven";
+                    j++;
+                    break;
+                case 8:
+                    arr[j]="Eight";
+                    j++;
+                    break;
+                case 9:   
+                    arr[j]="Nine";
+                    j++;
+                    break;
+            }
+            n=n/10;
+        }
+        //System.out.println(j);
+        for(int i=(j-1);i>=0;i--)
+        {
+            System.out.print(arr[i]+" ");
+        }
+    }
+}
+
+
+3.nth term
+
+import java.util.Scanner;
+
+public class seq
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int a,b,c,d=0;
+        a=0;
+        b=1;
+        c=1;
+        if (n==1)
+            System.out.println(a);
+        if (n==2)
+            System.out.println(b);
+        if (n==3)
+            System.out.println(c);
+        for(int i=4;i<=n;i++)
+        {
+            d=a+b+c;
+            a=b;
+            b=c;
+            c=d;
+        }
+        System.out.println(d);
+    }
+}
